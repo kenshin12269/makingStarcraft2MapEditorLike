@@ -1,0 +1,10 @@
+Library/
+Temp/
+*.csproj
+obj/
+UnityProject.sln
+.vscode
+.vs
+testIOSBuild
+AndroidBuild/
+*.sln
