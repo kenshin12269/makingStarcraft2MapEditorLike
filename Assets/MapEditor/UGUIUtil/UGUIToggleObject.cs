@@ -25,6 +25,7 @@ namespace UGUIUtil
             if (target.activeSelf == currentToggle.isOn)
                 return;
             target.SetActive(currentToggle.isOn);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(target.GetComponent<RectTransform>());
         }
     }
 }

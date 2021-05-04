@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff85c850161a264a9e8415a9609f67a, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  oneSide:
+  - {fileID: 3522457177366614281, guid: f91faa658d645e542bb943b2a6d27c75, type: 3}
+  twoSide:
+  - {fileID: 5793804463633243516, guid: 769687fff15eb6140979c085a368f113, type: 3}
+  twoSideDiagonal:
+  - {fileID: 5462197385537841958, guid: fcb90ac2174a19d48bc92d51eabc8f1b, type: 3}
+  threeSide:
+  - {fileID: 6153859489791341009, guid: 1f475b002e0e43340aef8cdf05cfba26, type: 3}
+  fourSide:
+  - {fileID: 6518402800349549572, guid: f813a4d2e8f07044b83e6edde70cb35a, type: 3}
+  rampRightSideHigh:
+  - {fileID: 2113287728883358960, guid: be891235599e006489f8fec5cecf668a, type: 3}
+  rampRightSideLow:
+  - {fileID: 8385443948593960775, guid: 1f8def5378d4fe44badf0a49fc549e1c, type: 3}
+  rampLeftSideHigh:
+  - {fileID: 8331691089495554698, guid: 05a473aac4c074c46828e34a730587af, type: 3}
+  rampLeftSideLow:
+  - {fileID: 1396180717909205999, guid: f41b1c13a923b5a4c96540bf55291144, type: 3}
+  rampLeftSideHalf:
+  - {fileID: 5951158359305099678, guid: e7b4b138376ad604687a41b75b9583dd, type: 3}
+  rampRightSideHalf:
+  - {fileID: 7781327692783953349, guid: e53434cb806f01a4f9ecd459b8374846, type: 3}
+  rampBothSideHigh:
+  - {fileID: 8359798702301560313, guid: 46f9116eb1a65324599c7448700bb337, type: 3}
+  rampBothSideLow:
+  - {fileID: 7163280435326516356, guid: 32c6d0c38c482cd4dbf0954ec857ad7a, type: 3}
