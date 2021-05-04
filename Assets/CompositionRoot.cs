@@ -7,7 +7,6 @@ using UniRx.Triggers;
 public class CompositionRoot : MonoBehaviour
 {
     [SerializeField] Vector2Int tileMapSize = new Vector2Int(10, 10);
-    // [SerializeField] MapUtil.DebugTileMap debugTileMap;
     [SerializeField] MapUtil.TileRenderer tileRenderer;
     [SerializeField] MapUtil.TileRaycaster tileRaycaster;
     [SerializeField] MapUtil.CliffDrawSystem cliffDrawSystem;
