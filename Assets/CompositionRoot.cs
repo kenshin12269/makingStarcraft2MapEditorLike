@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
@@ -38,7 +38,6 @@ public class CompositionRoot : MonoBehaviour
         {
             cameraController.MovableBoundarySize = new Vector2(tileData.MapSize.x, tileData.MapSize.y);
         });
-
 
         debugTileGridSystem.TileData = tileData;
         debugTileGridSystem.conversion = conversion;
