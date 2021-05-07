@@ -62,6 +62,12 @@ public class MapEditor : EditorWindow
                 selectedToolBar = toolBarIndex;
             }
         }
+
+        using (new GUILayout.VerticalScope("box"))
+        {
+            EditorGUILayout.LabelField("One");
+            EditorGUILayout.LabelField("Two");
+        }
     }
     void OnSceneGUI(SceneView sceneView)
     {
