@@ -33,6 +33,7 @@ public class MapEditor : EditorWindow
         Debug.LogFormat("Destroyed");
     }
     int selectedToolBar;
+    Color newColor;
     void OnGUI()
     {
         Event e = Event.current;
@@ -86,6 +87,10 @@ public class MapEditor : EditorWindow
         // Rect position = GUILayoutUtility.GetRect(MyGUI.TempContent("Hello"), GUI.skin.button);
         MyGUI.Button(new Rect(10, 10, 100, 100), MyGUI.TempContent("Hello"), GUI.skin.button);
         MyGUI.Button(new Rect(50, 50, 100, 100), MyGUI.TempContent("Hello"), GUI.skin.button);
+        // newColor = EditorGUI.ColorField(new Rect(10, 10, 100, 50), GUIContent.none, newColor, true, true, false);
+        // Repaint();
+        // if (Event.current.type != EventType.Repaint && Event.current.type != EventType.Layout)
+        // Debug.LogFormat("cur={0}", Event.current.type);
         // Debug.LogFormat("IsPressed={0}", isPressed);
         // GUILayout.Button("OkayBtn");
     }
@@ -120,15 +125,24 @@ public static class MyGUI
         int controlID = GUIUtility.GetControlID(s_ButtonHint, FocusType.Passive, position);
         bool result = false;
         var typeOfControl = Event.current.GetTypeForControl(controlID);
-        if (Event.current.type != EventType.Repaint && Event.current.type != EventType.Layout)
-            Debug.LogFormat("ControlID={0} tof={1} cur={2}", controlID, typeOfControl, Event.current.type);
+        // var anotherTypeOfControl = Event.current.GetTypeForControl(1132);
+        // Debug.LogFormat("Event={0} TypeForControl={1} Another={2}", Event.current.type, typeOfControl, anotherTypeOfControl);
+
+
+        // if (Event.current.type != EventType.Repaint && Event.current.type != EventType.Layout)
+        //     Debug.LogFormat("ControlID={0} tof={1} cur={2}", controlID, typeOfControl, Event.current.type);
         switch (typeOfControl)
         {
             case EventType.MouseDown:
                 if (GUI.enabled && position.Contains(Event.current.mousePosition))
                 {
+                    Debug.LogFormat("ControlID={0} tof={1} cur={2} rect={3} hot={4} true", controlID, typeOfControl, Event.current.type, position, GUIUtility.hotControl);
                     GUIUtility.hotControl = controlID;
-                    Event.current.Use();
+                    // Event.current.Use();
+                }
+                else
+                {
+                    Debug.LogFormat("ControlID={0} tof={1} cur={2} rect={3} hot={4} false", controlID, typeOfControl, Event.current.type, position, GUIUtility.hotControl);
                 }
                 break;
             // case EventType.MouseDrag:
@@ -140,32 +154,41 @@ public static class MyGUI
             case EventType.MouseUp:
                 if (GUIUtility.hotControl == controlID)
                 {
+                    Debug.LogFormat("ControlID={0} tof={1} cur={2} rect={3} hot={4} hotControl", controlID, typeOfControl, Event.current.type, position, GUIUtility.hotControl);
                     GUIUtility.hotControl = 0;
-                    Event.current.Use();
+                    // Event.current.Use();
                     if (position.Contains(Event.current.mousePosition))
                     {
                         result = true;
                     }
                 }
-                break;
-            case EventType.KeyDown:
+                else
                 {
-                    if (GUIUtility.hotControl == controlID)
-                    {
-                        if (Event.current.keyCode == KeyCode.Escape)
-                        {
-                            GUIUtility.hotControl = 0;
-                            Event.current.Use();
-                        }
-                    }
+                    Debug.LogFormat("ControlID={0} tof={1} cur={2} rect={3} hot={4} Not Hot Control", controlID, typeOfControl, Event.current.type, position, GUIUtility.hotControl);
                 }
                 break;
+            // case EventType.KeyDown:
+            //     {
+            //         if (GUIUtility.hotControl == controlID)
+            //         {
+            //             if (Event.current.keyCode == KeyCode.Escape)
+            //             {
+            //                 GUIUtility.hotControl = 0;
+            //                 Event.current.Use();
+            //             }
+            //         }
+            //     }
+            //     break;
             case EventType.Repaint:
                 {
                     style.Draw(position, label, controlID, false, position.Contains(Event.current.mousePosition));
                     result = controlID == GUIUtility.hotControl && position.Contains(Event.current.mousePosition);
                 }
                 break;
+                // default:
+                //     if (Event.current.type != EventType.Repaint && Event.current.type != EventType.Layout)
+                //         Debug.LogFormat("ControlID={0} Default tof={1} cur={2} rect={3} hot={4} Not Hot Control", controlID, typeOfControl, Event.current.type, position, GUIUtility.hotControl);
+                //     break;
         }
         return result;
     }
